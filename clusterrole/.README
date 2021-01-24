@@ -1,0 +1,1 @@
+kubectl get pod -nweb --as=system:serviceaccount:web:webautomation

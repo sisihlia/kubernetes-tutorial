@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet #daemonset runs the pod on each node
+metadata:
+  name: my-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: my-daemonset  #labels needed to know to which pods it should attach to 
+  template:
+    metadata:
+      labels:
+        app: my-daemonset #labels for pods
+    spec:
+      containers:
+      - name: nginx 
+        image: nginx:1.19.1

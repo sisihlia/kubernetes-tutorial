@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet #daemonset runs the pod on each node
+metadata:
+  name: my-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: my-daemonset  #labels needed to know to which pods it should attach to 
+  template:
+    metadata:
+      labels:
+        app: my-daemonset #labels for pods
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:1.27
+        command: ['sh', '-c', 'while true; do rm -rf /beebox-temp/*; sleep 60; done']
+        volumeMounts:
+        - name: beebox-tmp
+          mountPath: /beebox-temp
+      volumes:
+      - name: beebox-tmp
+        hostPath:
+          path: /etc/beebox/tmp

@@ -1,0 +1,6 @@
+HOW TO TEST
+
+curl $POD_IP -> return 401
+
+curl -u user:admin $POD_IP
+

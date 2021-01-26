@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox:1.28
+    command:  
+    - sh
+    - -c
+    - |
+      echo "configmap key1: $CONFIGMAPVAR1 secretkey1: $SECRETVAR1"
+      echo "$DEMO_GREETING"
+      while true;do sleep 50; done
+      echo "done"
+    env:
+    - name: DEMO_GREETING
+      value: "Hello from the environment"
+    - name: CONFIGMAPVAR1
+      valueFrom: 
+        configMapKeyRef:
+        # The ConfigMap containing the value you want to assign to CONFIGMAPVAR
+          name: my-configmap
+        # Specify the key associated with the value
+          key: key1
+    - name: SECRETVAR1
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: secretkey1

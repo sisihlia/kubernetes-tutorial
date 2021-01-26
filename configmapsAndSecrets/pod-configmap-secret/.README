@@ -1,0 +1,22 @@
+HOW TO TEST
+
+env-pod
+
+kubectl logs env-pod
+
+volume-pod
+
+kubectl exec volume-pod -- cat /etc/comap/key1
+--> Hello,World
+
+kubectl exec volume-pod -- cat /etc/comap/key2
+--> Test
+multiple lines
+more lines
+
+kubectl exec volume-pod -- cat /etc/config/secret/secretkey1
+--> secret
+
+kubectl exec volume-pod -- cat /etc/config/secret/secretkey2
+--> another secret
+

@@ -1,0 +1,7 @@
+Ingress
+
+is a K8s object that manages external access to services in the cluster.
+It does more than NodePort Service such SSL termination, advanced loadbalancing,
+or name based virtual hosting.
+
+It defines a set of routing rules to determine to which requests it applies/goes to

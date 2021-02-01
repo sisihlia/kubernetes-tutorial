@@ -1,0 +1,5 @@
+OBJECTIVE:
+to run all pods on worker2 by labels
+
+
+kubectl label nodes k8s-worker2 auth=true

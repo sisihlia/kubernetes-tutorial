@@ -1,0 +1,4 @@
+HOW TO TEST
+
+kubectl logs multi-container-pod -c busybox-readlogs
+

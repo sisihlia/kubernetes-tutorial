@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: np-nginx
+  labels:
+    app: nginx
+  namespace: np-test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: np-busybox
+  labels:
+    app: busybox
+    role: client
+  namespace: np-test
+spec:
+  containers:
+  - name: busybox
+    image: radial/busyboxplus:curl
+    command: ['sh','-c','while true; do sleep 10;done']
+

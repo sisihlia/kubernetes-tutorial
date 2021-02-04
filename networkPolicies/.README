@@ -1,0 +1,5 @@
+kubectl label namespace np-test app=np-test
+
+kubectl exec -nnp-test np-busybox -- curl $NGINX_POD_IP
+OR
+kubectl exec -nnp-test np-busybox -- curl 10-47-0-1.np-test.pod.cluster.local

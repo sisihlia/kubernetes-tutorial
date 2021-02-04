@@ -1,0 +1,13 @@
+The storage is using local hardisk so the file success.txt can be found in one of the nodes where the pod is running on.
+
+allowVolumeExpansion: allows to modify the request size of the pvc dynamically
+
+
+kubectl edit pvc my-pvc --record
+--> find spec section and modify the request
+
+kubectl delete pod my-pvc-pod
+kubectl delete pvc my-pvc
+
+kubectl get pv
+--> shows that my-pv is available to be re-used (because persistentVolumeReclaimPolicy is set to Recycle)

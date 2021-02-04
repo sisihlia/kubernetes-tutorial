@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pvc-pod
+spec:
+  volumes:
+    - name: my-pv-storage
+      persistentVolumeClaim:
+        claimName: my-pvc
+  containers:
+    - name: busybox
+      image: busybox
+      command: 
+      - sh
+      - -c
+      - |
+        echo my-pvc-success > /output/success.txt
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: /output
+          name: my-pv-storage

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-svc
+spec:
+  replicas: 3
+  selector: # defines how the deployment finds which pods to maage
+    matchLabels:
+      app: svc-example
+  template:
+    metadata:
+      labels: # labels the pods
+        app: svc-example
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19.1
+        ports:
+        - containerPort: 80

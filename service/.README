@@ -1,0 +1,23 @@
+HOW TO TEST
+
+
+SVC-CLUSTERIP
+
+kubectl exec pod-svc-pod -- curl svc-clusterip:80
+
+
+SVC-NODEPORT
+
+curl localhost:30080 from all nodes 
+curl $NODE_IP:30080 from all nodes
+
+
+Access a service from different namespace
+
+kubectl exec -nnew-ns pod-svc-pod-new-ns -- curl svc-clusterip
+curl: (6) Couldn't resolve host 'svc-clusterip'
+
+User should use either the service ip or FQDN
+
+kubectl exec -nnew-ns pod-svc-pod-new-ns -- curl $SERVICE_IP
+kubectl exec -nnew-ns pod-svc-pod-new-ns -- curl svc-clusterip.default.svc.cluster.local

@@ -1,0 +1,9 @@
+ps -aux | grep kubelet
+
+find --config where kubelet configuration located
+
+
+--config=/var/lib/kubelet/config.yaml
+
+
+staticPodPath is located in /var/lib/kubelet/config.yaml

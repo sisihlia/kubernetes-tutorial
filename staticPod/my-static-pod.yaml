@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-static-pod
+  # create the file on worker node
+  #kubelet checks periodically the files under /etc/kubernetes/manifest for any files or changes. Otherwise restart kubelet to create the pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.19.1
+

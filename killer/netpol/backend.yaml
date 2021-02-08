@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend
+  name: backend-0
+  namespace: project-snake
+spec:
+  containers:
+  - image: nginx
+    name: backend-0
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

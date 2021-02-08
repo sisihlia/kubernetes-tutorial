@@ -1,0 +1,6 @@
+Do the following in Namespace default. Create a single Pod named ready-if-service-ready of image nginx:1.16.1-alpine. Configure a StartupProbe which runs sleep 3 && true. Also configure a ReadinessProbe which does check if the url http://service-am-i-ready:80 is reachable, you can use wget -T2 -O- http://service-am-i-ready:80 for this. Start the Pod and confirm it isn't ready because of the ReadinessProbe.
+
+Create a second Pod named am-i-ready of image nginx:1.16.1-alpine with label id: cross-server-ready. 
+Expose the pod on port 80 with the name service-am-i-ready. Check the endpoint
+
+
